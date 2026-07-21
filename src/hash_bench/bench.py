@@ -35,3 +35,10 @@ def run_bench(size_mb: float = 4.0, iters: int = 3, algos: list[str] | None = No
         results.append({"algo": name, "best_s": best, "mb_s": mbs, "size_mb": size_mb, "iters": iters})
     results.sort(key=lambda r: r["mb_s"], reverse=True)
     return results
+
+
+def digest_hex(algo: str, data: bytes) -> str:
+    """One-shot hex digest for a registered algorithm."""
+    if algo not in ALGOS:
+        raise KeyError(f"unknown algo: {algo}")
+    return ALGOS[algo](data).hexdigest()
