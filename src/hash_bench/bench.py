@@ -13,6 +13,7 @@ ALGOS = {
     "blake2s": hashlib.blake2s,
     "sha512": hashlib.sha512,
     "sha3_256": hashlib.sha3_256,
+    "sha3_512": hashlib.sha3_512,
 }
 
 
