@@ -43,3 +43,13 @@ def digest_hex(algo: str, data: bytes) -> str:
     if algo not in ALGOS:
         raise KeyError(f"unknown algo: {algo}")
     return ALGOS[algo](data).hexdigest()
+
+
+def blake2b_hex(data: bytes, digest_size: int = 32) -> str:
+    import hashlib
+    return hashlib.blake2b(data, digest_size=digest_size).hexdigest()
+
+
+def sha3_256_hex(data: bytes) -> str:
+    import hashlib
+    return hashlib.sha3_256(data).hexdigest()
